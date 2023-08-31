@@ -48,14 +48,14 @@ header {
   text-align: right;
 }
 
-#previous-operation {
+#previous_operation {
   color: #777;
   padding: 0.2em;
   overflow-wrap: break-word;
   min-height: 1.6em;
 }
 
-#current-operation {
+#current_operation {
   min-height: 1.6em;
   font-size: 3em;
   font-weight: 700;
@@ -63,13 +63,13 @@ header {
   overflow-wrap: break-word;
 }
 
-#buttons-container {
+#buttons_container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 3px;
 }
 
-#buttons-container button {
+#buttons_container button {
   border: 1px solid transparent;
   border-radius: 0;
   height: 4em;
@@ -79,7 +79,7 @@ header {
   cursor: pointer;
 }
 
-#buttons-container .on {
+#buttons_container .on {
   background-color: rgb(219, 80, 80);
 }
 
@@ -87,21 +87,21 @@ header {
   background-color: rgb(236, 61, 61);
 }
 
-#buttons-container .number {
+#buttons_container .number {
   background-color: #f3f3f3;
 }
 
-#buttons-container button:hover {
+#buttons_container button:hover {
   background-color: #bababa;
   border-color: #999;
 }
 
-#buttons-container #equal-btn {
+#buttons_container #equal_btn {
   grid-column: span 2;
   background-color: #75a5cb;
 }
 
-#buttons-container #equal-btn:hover {
+#buttons_container #equal_btn:hover {
   background-color: #3a91d8;
 }
 
