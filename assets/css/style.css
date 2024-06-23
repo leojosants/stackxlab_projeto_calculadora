@@ -1,187 +1,205 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-  background-color: #333;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3em;
-  height: 100vh;
+	background-color: #333;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 3em;
+	height: 100vh;
 }
 
 header {
-  border-bottom: 1px solid #d76666;
-  margin-top: 15px;
-  margin-bottom: 5px;
-  padding: 3px 3px;
+	border-bottom: 1px solid #d76666;
+	margin-top: 15px;
+	margin-bottom: 5px;
+	padding: 3px 3px;
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 100%;
+.class-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 100%;
 }
 
-#calc {
-  width: 400px;
-  padding: 0.5em;
-  background-color: #c4c4c4;
-  color: #000;
-  display: flex;
-  flex-direction: column;
-  border-radius: 5px;
+#id-calculator {
+	width: 400px;
+	padding: 0.5em;
+	background-color: #c4c4c4;
+	color: #000;
+	display: flex;
+	flex-direction: column;
+	border-radius: 5px;
 }
 
-#calc h3 {
-  font-size: 0.8em;
-  font-weight: 600;
-  color: #666;
+#id-calculator h3 {
+	font-size: 0.8em;
+	font-weight: 600;
+	color: #666;
 }
 
-#operations {
-  text-align: right;
+#id-operations {
+	text-align: right;
 }
 
-#previous_operation {
-  color: #777;
-  padding: 0.2em;
-  overflow-wrap: break-word;
-  min-height: 1.6em;
+#id-previous-operation {
+	color: #777;
+	padding: 0.2em;
+	overflow-wrap: break-word;
+	min-height: 1.6em;
 }
 
-#current_operation {
-  min-height: 1.6em;
-  font-size: 3em;
-  font-weight: 700;
-  padding: 0.2em;
-  overflow-wrap: break-word;
+#id-current-operation {
+	min-height: 1.6em;
+	font-size: 3em;
+	font-weight: 700;
+	padding: 0.2em;
+	overflow-wrap: break-word;
 }
 
-#buttons_container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 3px;
+#id-buttons-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 3px;
 }
 
-#buttons_container button {
-  border: 1px solid transparent;
-  border-radius: 0;
-  height: 4em;
-  font-size: 1.2em;
-  background-color: #dbdbdb;
-  transition: .2s;
-  cursor: pointer;
+#id-buttons-container button {
+	border: 1px solid transparent;
+	border-radius: 0;
+	height: 4em;
+	font-size: 1.2em;
+	background-color: #dbdbdb;
+	transition: 0.2s;
+	cursor: pointer;
+	transition: all 300ms ease-in-out;
 }
 
-#buttons_container .on {
-  background-color: rgb(219, 80, 80);
+#id-buttons-container button:hover {
+	background-color: #bababa;
+	border-color: #999;
 }
 
-#buttons-container .on:hover {
-  background-color: rgb(236, 61, 61);
+#id-buttons-container .class-number {
+	background-color: #f3f3f3;
+	transition: all 300ms ease-in-out;
 }
 
-#buttons_container .number {
-  background-color: #f3f3f3;
+#id-buttons-container #id-on {
+	border-top-left-radius: 5px;
+	background-color: rgb(219, 80, 80);
+	transition: all 300ms ease-in-out;
 }
 
-#buttons_container button:hover {
-  background-color: #bababa;
-  border-color: #999;
+#id-buttons-container #id-on:hover {
+	background-color: rgb(236, 61, 61);
 }
 
-#buttons_container #equal_btn {
-  grid-column: span 2;
-  background-color: #75a5cb;
+#id-buttons-container #id-division {
+	border-top-right-radius: 5px;
 }
 
-#buttons_container #equal_btn:hover {
-  background-color: #3a91d8;
+#id-buttons-container #id-dot {
+	border-bottom-left-radius: 5px;
 }
 
-.history_container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-left: 1.2rem;
-  width: 550px;
-  height: 528px;
-  padding: 2px;
-  background-color: #c4c4c4;
-  color: #000;
-  border-radius: 5px;
+#id-buttons-container #id-equal-btn {
+	border-bottom-right-radius: 5px;
 }
 
-.result_date  div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 5px ;
-  width: 300px;
+#id-buttons-container #id-equal-btn {
+	grid-column: span 2;
+	background-color: #75a5cb;
 }
 
-.hide {
-  display: none;
+#id-buttons-container #id-equal-btn:hover {
+	background-color: #3a91d8;
+}
+
+.class-history-container {
+	display: flex;
+	align-items: center;
+	/* justify-content: center; */
+	flex-direction: column;
+	margin-left: 1.2rem;
+	width: 400px;
+	height: 528px;
+	padding: 2px;
+	background-color: #c4c4c4;
+	color: #000;
+	border-radius: 5px;
+	gap: 1rem;
+	overflow: hidden;
+}
+
+.class-result-date div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 5px;
+	width: 300px;
+  margin-bottom: 0.2rem;
+}
+
+.class-hide {
+	display: none;
 }
 
 input {
-  text-align: center;
-  padding: 4px;
-  margin: auto;
-  width: 70%;
-  border: none;
-  border-radius: 5px;
+	text-align: center;
+	padding: 4px;
+	margin: auto;
+	width: 70%;
+	border: none;
+	border-radius: 5px;
 }
 
-.delete {
-  border: 1px solid rgb(236, 210, 210);
-  background-color: #e7a1a1;
+.class-delete {
+	border: 1px solid rgb(236, 210, 210);
+	background-color: #e7a1a1;
+	transition: all 300ms ease-in-out;
 }
 
-.delete:hover {
-  background-color: #d76666;
+.class-delete:hover {
+	background-color: #d76666;
 }
 
 label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2px;
-  width: 300px;
-  height: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2px;
+	height: 25px;
 }
 
-.result_date_container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  padding: 2px;
-  margin: 0 auto;
+.class-result-date-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 70%;
+	margin: 0 auto;
+	overflow: hidden;
 }
 
-.gitHub {
-  display: flex; 
-  justify-content: center; 
-  align-items: center;
-  position: absolute;  
-  right: 0; 
-  bottom: 0; 
-  margin-right: 20px; 
-  margin-bottom: 20px; 
-  width: 30px; 
-  height: 30px; 
-  background-color: #000; 
-  color: #fff; 
-  border-radius: 50%; 
+.class-github {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	width: 30px;
+	height: 30px;
+	background-color: #000;
+	color: #fff;
+	border-radius: 50%;
 }

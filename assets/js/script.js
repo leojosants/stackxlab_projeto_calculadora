@@ -1,67 +1,86 @@
 import Calculator from "./Calculator.js";
 
 /* selected elements */
-const power_button = document.querySelector('[data_power]');
-const equals_button = document.querySelector('[data_equals]');
-const delete_button = document.querySelector('[data_delete]');
-const number_buttons = document.querySelectorAll('[data_number]');
-const history = document.querySelector('[data_history_container]');
-const all_clear_button = document.querySelector('[data_all_clear]');
-const operation_buttons = document.querySelectorAll('[data_operator]');
-const data_container = document.querySelector('[data_result_date_container]');
-const previous_operand_text_element = document.querySelector('[data_previous_operand]');
-const current_operand_text_element = document.querySelector('[data_current_operand]');
+const powerButton = document.querySelector('[data-power]');
+const equalsButton = document.querySelector('[data-equals]');
+const deleteButton = document.querySelector('[data-delete]');
+const numbeButtons = document.querySelectorAll('[data-number]');
+const allClearButton = document.querySelector('[data-all-clear]');
+const history = document.querySelector('[data-history-container]');
+const operationButtons = document.querySelectorAll('[data-operator]');
+const dataContainer = document.querySelector('[data-result-date-container]');
+const currentOperandTextElement = document.querySelector('[data-current-operand]');
+const previousOperandTextElement = document.querySelector('[data-previous-operand]');
 
 // instance
-const calculator = new Calculator(previous_operand_text_element, current_operand_text_element, data_container, history);
+const calculator = new Calculator(
+    previousOperandTextElement, currentOperandTextElement, dataContainer, history
+);
 
 /* events */
-for (const number_button of number_buttons) {
-    number_button.addEventListener('click', () => {
-        calculator.appendNumber(number_button.innerText);
-        calculator.updateDisplay();
-    });
+for (const numberButton of numbeButtons) {
+    numberButton.addEventListener(
+        'click', () => {
+            calculator.appendNumber(numberButton.innerText);
+            calculator.updateDisplay();
+        }
+    );
 };
 
-for (const operation_button of operation_buttons) {
-    operation_button.addEventListener('click', () => {
-        calculator.chooseOperation(operation_button.innerText);
-        calculator.updateDisplay();
-    });
+for (const operationButton of operationButtons) {
+    operationButton.addEventListener(
+        'click', () => {
+            calculator.chooseOperation(operationButton.innerText);
+            calculator.updateDisplay();
+        }
+    );
 };
 
-all_clear_button.addEventListener('click', () => {
-    calculator.clear();
-    calculator.updateDisplay();
-});
-
-equals_button.addEventListener('click', () => {
-    if (calculator.current_operand === '') {
+allClearButton.addEventListener(
+    'click', () => {
+        calculator.clear();
         calculator.updateDisplay();
-        alert('Operação já finalizada ou campo vazio');
-        return;
-    };
+    }
+);
 
-    calculator.calculate();
-    calculator.updateDisplay();
-    calculator.clear();
-});
+equalsButton.addEventListener(
+    'click', () => {
+        if (calculator.currentOperand === '') {
+            calculator.updateDisplay();
+            alert('Operação já finalizada ou campo vazio');
+            return;
+        };
 
-delete_button.addEventListener('click', () => {
-    calculator.delete();
-    calculator.updateDisplay();
-});
+        calculator.calculate();
+        calculator.updateDisplay();
+        calculator.clear();
+    }
+);
 
-document.addEventListener('click', (e) => {
-    const target_element = e.target;
-    const parent_element = target_element.closest('div');
+deleteButton.addEventListener(
+    'click', () => {
+        calculator.delete();
+        calculator.updateDisplay();
+    }
+);
 
-    if (target_element.classList.contains('delete')) {
-        parent_element.remove();
-        calculator.decrementCount(1);
-    };
-});
+document.addEventListener(
+    'click', (event) => {
+        const targetElement = event.target;
+        const parentElement = targetElement.closest('div');
 
-power_button.addEventListener('click', () => {
-    location.reload();
-});
+        if (targetElement.classList.value.includes('class-result')) {
+            calculator.insertDisplay(targetElement.value.split('=')[1].trim())
+        }
+
+        if (targetElement.classList.contains('class-delete')) {
+            parentElement.remove();
+        };
+    }
+);
+
+powerButton.addEventListener(
+    'click', () => {
+        location.reload();
+    }
+);
