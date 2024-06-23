@@ -17,10 +17,14 @@ const calculator = new Calculator(
     previousOperandTextElement, currentOperandTextElement, dataContainer, history
 );
 
+const events = {
+    click: 'click',
+}
+
 /* events */
 for (const numberButton of numbeButtons) {
     numberButton.addEventListener(
-        'click', () => {
+        events.click, () => {
             calculator.appendNumber(numberButton.innerText);
             calculator.updateDisplay();
         }
@@ -29,7 +33,7 @@ for (const numberButton of numbeButtons) {
 
 for (const operationButton of operationButtons) {
     operationButton.addEventListener(
-        'click', () => {
+        events.click, () => {
             calculator.chooseOperation(operationButton.innerText);
             calculator.updateDisplay();
         }
@@ -37,14 +41,14 @@ for (const operationButton of operationButtons) {
 };
 
 allClearButton.addEventListener(
-    'click', () => {
+    events.click, () => {
         calculator.clear();
         calculator.updateDisplay();
     }
 );
 
 equalsButton.addEventListener(
-    'click', () => {
+    events.click, () => {
         if (calculator.currentOperand === '') {
             calculator.updateDisplay();
             alert('Operação já finalizada ou campo vazio');
@@ -58,16 +62,20 @@ equalsButton.addEventListener(
 );
 
 deleteButton.addEventListener(
-    'click', () => {
+    events.click, () => {
         calculator.delete();
         calculator.updateDisplay();
     }
 );
 
 document.addEventListener(
-    'click', (event) => {
+    events.click, (event) => {
         const targetElement = event.target;
         const parentElement = targetElement.closest('div');
+
+        if (!history.className.includes('class-hide')) {
+            powerButton.classList.add('class-active');
+        }
 
         if (targetElement.classList.value.includes('class-result')) {
             calculator.insertDisplay(targetElement.value.split('=')[1].trim())
@@ -80,7 +88,7 @@ document.addEventListener(
 );
 
 powerButton.addEventListener(
-    'click', () => {
+    events.click, () => {
         location.reload();
     }
 );
