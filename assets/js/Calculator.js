@@ -19,8 +19,7 @@ export default class Calculator {
         }
         else {
             integerDisplay = integerDigits.toLocaleString(
-                'en',
-                { maximumFractionDigits: 0 }
+                'en', { maximumFractionDigits: 0 }
             );
         };
 
@@ -48,24 +47,31 @@ export default class Calculator {
         const previousOperandFloat = parseFloat(this.previousOperand);
         const currentOperandFloat = parseFloat(this.currentOperand);
 
+        const operationsSymbols = {
+            adition: '+',
+            subtraction: '-',
+            multiplication: '*',
+            division: '/',
+        };
+
         if (isNaN(previousOperandFloat) || isNaN(currentOperandFloat)) {
             return;
         };
 
         switch (this.operation) {
-            case '+':
+            case operationsSymbols.adition:
                 result = previousOperandFloat + currentOperandFloat;
                 break;
 
-            case '-':
+            case operationsSymbols.subtraction:
                 result = previousOperandFloat - currentOperandFloat;
                 break;
 
-            case '*':
+            case operationsSymbols.multiplication:
                 result = previousOperandFloat * currentOperandFloat;
                 break;
 
-            case '/':
+            case operationsSymbols.division:
                 if (currentOperandFloat === 0) {
                     alert('Não é possível realizar divisão por ZERO.');
                     this.clear();
@@ -97,27 +103,31 @@ export default class Calculator {
         this.currentOperand = '';
     };
 
+    createElementFN(element) {
+        return document.createElement(element);
+    }
+
     createDataContainer(resultHistory) {
         this.history.classList.remove('class-hide');
 
-        const divContainer = document.createElement('div');
+        const divContainer = this.createElementFN('div');
         divContainer.classList.add('class-result-date');
 
-        const divData = document.createElement('div');
+        const divData = this.createElementFN('div');
 
-        const labelDate = document.createElement('label');
+        const labelDate = this.createElementFN('label');
         labelDate.innerHTML += '<i class="bi bi-calendar3"></i>';
         labelDate.innerHTML += `<input disabled style="background-color: #fff;" type="text" value=${resultHistory.date} />`;
 
-        const labelTime = document.createElement('label');
+        const labelTime = this.createElementFN('label');
         labelTime.innerHTML += '<i class="bi bi-alarm"></i>';
         labelTime.innerHTML += `<input disabled style="background-color: #fff;" type="text" value=${resultHistory.time} />`;
 
-        const labelResult = document.createElement('label');
+        const labelResult = this.createElementFN('label');
         labelResult.innerHTML += '<i style="cursor: help;" class="bi bi-calculator-fill"></i>';
         labelResult.innerHTML += `<input class="class-result" readonly type="text" style="cursor: help; background-color: #fff;" value='${resultHistory.data[0]} ${resultHistory.data[1]} ${resultHistory.data[2]} = ${resultHistory.data[3]}' />`;
 
-        const labelTrash = document.createElement('label');
+        const labelTrash = this.createElementFN('label');
         labelTrash.innerHTML += '<i style="cursor: pointer;" class="bi bi-trash3"></i>';
         labelTrash.innerHTML += '<input readOnly class="class-delete" type="text" value="Deletar" style="cursor: pointer;" />';
 
